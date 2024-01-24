@@ -21,6 +21,8 @@
 
         #wrapper {
             background-color:lightslategray;
+            width:1200px;
+            margin:auto;
         }
 
         .bg {
@@ -36,6 +38,63 @@
         #footer {
             border:3px solid black;
         }
+
+
+
+
+
+
+
+
+        /*style links to look like buttons*/
+        .special {
+            /*make the buton size*/
+            width:100px;
+            height:50px;
+            /*make buttons expand to size specified*/
+            display:block;
+
+            /*give text breathing room*/
+            padding:2px;
+            /*space buttons away from one another*/
+            margin-right:10px;
+
+            /*change button colors * text size*/
+            background-color:black;
+            color:white; /*font*/
+            font-size:16px;
+            /*remove underline*/
+            text-decoration:none;
+
+            /*moves buttons next to one another again*/
+            float:left;
+
+            /*align button text*/
+            text-align:center;
+            line-height:50px; /*match height value to center vertically*/
+        }
+
+        .special:hover {
+            background-color:white;
+            color:black;
+        }
+
+        .special:visited {
+            background-color:darkgrey;
+        }
+
+
+
+
+
+
+
+
+        /*#btn-container {
+            width:1005;
+            border:1px solid green;
+            height:100px;
+        }*/
 
     </style>
 </head>
@@ -54,12 +113,17 @@
         <!--nav------------------------------------------------->
         <div id="nav">
 
-            <!--internal links:pages inside of website-->
-            <!--RELATIVE PATHS-->
-            <a href="index.html">| &nbsp;HOME&nbsp; |</a>
-            <a href="places.html">| PLACES |</a>
-            <a href="people.html">| PEOPLE |</a>
-            
+           
+
+                <!--internal links:pages inside of website-->
+                <!--RELATIVE PATHS-->
+                <a href="index.html" class="special">| &nbsp;HOME&nbsp; |</a>
+                <a href="places.html" class="special">| PLACES |</a>
+                <a href="people.html" class="special">| PEOPLE |</a>
+                
+
+
+
             <br>
             <!--internal JUMP links:jumps to section based on #id of current page-->
             <a href="#footer">BOTTOM OF PAGE</a>
