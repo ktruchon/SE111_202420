@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="KTRUCHON">
+    <meta name="description" content="w2 demo">
+
+    <title>W2 | Demo</title>
+
+    <!--IN-DOCUMENT STYLING-->
+    <style>
+
+        /*for CSS styling of all page content*/
+
+        /* selector {
+            property:value;
+        }
+        */
+
+        div { /*this applies to ALL divs in the page*/
+            border:1px solid black;
+            margin:10px;/*space outside of border, all 4 sides: top, right, bottom, left*/
+            padding:10px;/*space between content & border interior, all 4 sides: top, right, bottom, left*/
+
+        }
+
+        #bio {/*applies to the element with an id value of "bio"*/
+
+            border:2px solid red;
+            background-color:grey;
+
+        }
+
+        .bg {
+            background-color:black;
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h3><i>W2 In-Class Demo for SE111.11 section</i> <a href="../../../index.html">Back to KT's Repo Index</a></h3>
+        <!--the content of the page lives - everything we "see"-->
+        <h1 style="border:1px solid blue">Week 2 - Demo</h1>
+        <h2>Attributes, <b>Images</b>, <i>Links</i></h2>
+
+        <!--NAV BAR-->
+        <div id="nav">
+
+            <!--<A> for linking; both external as well as internal (files + in-page)-->
+
+            <!--external link, outside of site-->
+            <a href="https://www.meca.edu" target="_blank">Visit MECA!</a> 
+
+            <br>
+
+            <!--internal link, inside of site; RELATIVE PATH-->
+            <a href="text.txt">Page 2</a>
+
+            <!--internal JUMP links, inside of PAGE; id "paths"-->
+            <a href="#bio">Bio</a>
+            <a href="#schools">Schools</a>
+            <a href="#hobbies">Hobbies</a>
+            
+            <br>
+            <a href="#footer">Bottom of Page</a>
+
+        </div>
+
+        <!--BIO SECTION-->
+        <div id="bio">
+
+            <h2 class="bg">Bio - About ME</h2>
+
+            <p>Can a man still be <b>brave</b> if he’s afraid? That is the <i>only time</i> a man can be brave.A forked purple lightning bolt, on black field speckled with four-pointed stars. Winter is coming. You know nothing, Jon Snow. Pay the iron price. Unbowed, Unbent, Unbroken. It's <b><u>ten thousand miles</u></b> between Kings landing and the wall. It's ten thousand miles between Kings landing and the wall.
+            </p>
+
+        </div>
+
+        <!--SCHOOLS SECTION-->
+        <div id="schools">
+
+            <h2>Schools</h2>
+
+            <!--ordered list of schools-->
+            <ol class="bg">
+                <li>NEIT - MSIT - 2023</li>
+                <li>MECA - BFA, Photography - 2012</li>
+                <li>USM - additional media studies</li>
+            </ol>
+
+            <!--images use the <img> tag and require src and alt attributes-->
+            <!--"external" images use ABSOLUTE PATHS - booooo :[ AVOID!-->
+            <img src="https://www.usnews.com/dims4/USNEWS/94c3a0a/17177859217/resize/800x540%3E/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2F86%2Fb8b86b1522794f681343528be38ba8%2Fcollege-photo_1706.jpg" alt="porteous building facade, meca">
+
+            <!--internal image found in the site project folder; RELATIVE PATH-->
+            <img src="images/meca.jpg" alt="the beautiful MECA building at sundown" width="500">
+        </div>
+
+        <!--HOBBY SECTION-->
+        <div id="hobbies">
+
+            <h2>Hobbies</h2>
+
+            <!--unordered list of hobbies-->
+            <ul>
+                <li class="bg">Watching TV/Movies</li>
+                <li>Listening to pop culture podcasts</li>
+                <li>Reading</li>
+                <li>GAME OF THRONES!</li>
+            </ul>
+
+            <img src="images/stormsEnd.jpg" alt="Storm's End illustration, at spring time" width="500">
+
+        </div>
+
+        <!--FOOTER SECTION-->
+        <div id="footer" class="bg">
+            <p>&copy; 2024, KTRUCHON | SE111 | 202420</p>
+            <a href="#nav">Back to Top!</a>
+        </div>
+    
+    </div><!--/ #wrapper -->
+</body>
+</html>

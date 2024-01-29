@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="K TRUCHON">
+    <meta name="descriptions" content="W3 multi page demo">
+
+    <title>W3 | Demo</title>
+
+    <!--in-document styling-->
+    <style>
+        /*in here we write CSS*/
+        div {
+            border:1px solid black;
+            padding:10px;
+            margin:10px;
+        }
+
+        #wrapper {
+            background-color:lightgrey;
+        }
+
+        .bg {
+            background-color:black;
+            color:white;
+            text-align:center;
+        }
+
+        .border {
+            border:1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!--#wrapper div to hold all content-->
+    <div id="wrapper">
+        <h3><i>W3 In-Class Demo for SE111.01 section</i> <a href="../../index.html">Back to KT's Repo Index</a></h3>
+
+        <!--#HEADER-->
+        <div id="header" class="border bg">
+
+            <h1 id="title" class="fancy">Joel Miller</h1>
+            <h2 class="fancy"><i>from HBO's 'The Last of Us'</i></h2>
+
+        </div><!--/ #header-->
+
+        <!--#NAV-->
+        <div id="nav">
+
+            <!--internal page links: these go to pages within the site-->
+            <!--RELATIVE FILE PATHS-->
+            <a href="index.html">| HOME |</a>
+            <a href="people.html">| PEOPLE |</a>
+            <a href="places.html">| PLACES |</a>
+
+            <br>
+            <!--internal JUMP links: using #fragments; bring you to a section of the current page based on #id-->
+            <a href="#footer">JUMP TO FOOTER</a>
+
+            <br>
+            <!--external links: these go to pages outside of the site-->
+            <!--ABSOLUTE PATHS - includes protocol, domain, + sub-dir-->
+            <a href="https://www.hbo.com/the-last-of-us/" target="_blank">Visit the Official HBO site!</a>
+
+
+        </div><!--/ #nav-->
+
+        <!--#PAGE-CONTENT-->
+        <div id="page-content" style="background-color:red">
+
+            <h2 class="border">All <u>About</u> Joel Miller</h2>
+
+
+        </div><!--/ #page-content-->
+
+        <!--#FOOTER-->
+        <div id="footer" class="border bg">
+
+            <a href="#header">JUMP TO TOP</a>
+            <p>&copy;K TRUCHON | SE111 | 202420</p>
+
+            <!--IMAGE VALIDATION SCREENSHOT - uncomment below once you have validated the page + added the image path-->
+            <!--
+                <img src="" alt="validation screenshot of THIS page" width="100%">
+            -->
+
+
+        </div><!--/ #footer-->
+
+    </div><!--/ #wrapper-->
+    
+</body>
+</html>

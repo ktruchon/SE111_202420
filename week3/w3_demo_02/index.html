@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="K TRUCHON">
+    <meta name="descriptions" content="W3 multi page demo">
+
+    <title>W3 | Demo</title>
+
+    <!--in-document-->
+    <style>
+        /*we write in CSS*/
+        div {
+            border:1px solid black;
+            padding:10px;
+            margin:10px;
+        }
+
+        #wrapper {
+            background-color:lightslategray;
+            width:1200px;
+            margin:auto;
+        }
+
+        .bg {
+            background-color:darkslategrey;
+            color:aliceblue;
+            text-align:center;
+        }
+
+        .border {
+            border:2px solid darkred;
+        }
+
+        #footer {
+            border:3px solid black;
+        }
+
+
+
+
+
+
+
+
+        /*style links to look like buttons*/
+        .special {
+            /*make the buton size*/
+            width:100px;
+            height:50px;
+            /*make buttons expand to size specified*/
+            display:block;
+
+            /*give text breathing room*/
+            padding:2px;
+            /*space buttons away from one another*/
+            margin-right:10px;
+
+            /*change button colors * text size*/
+            background-color:black;
+            color:white; /*font*/
+            font-size:16px;
+            /*remove underline*/
+            text-decoration:none;
+
+            /*moves buttons next to one another again*/
+            float:left;
+
+            /*align button text*/
+            text-align:center;
+            line-height:50px; /*match height value to center vertically*/
+        }
+
+        .special:hover {
+            background-color:white;
+            color:black;
+        }
+
+        .special:visited {
+            background-color:darkgrey;
+        }
+
+
+
+
+
+
+
+
+        /*#btn-container {
+            width:1005;
+            border:1px solid green;
+            height:100px;
+        }*/
+
+    </style>
+</head>
+<body>
+    <!--#wrapper-->
+    <div id="wrapper">
+        <h3><i>W3 In-Class Demo for SE111.02 section</i> <a href="../../index.html">Back to KT's Repo Index</a></h3>
+
+        <!--header---------------------------------------------->
+        <div id="header" class="border bg">
+
+            <h1 id="title">Joel Miller</h1>
+            <h2 id="subtitle">The hero & heart throb of <i>The Last of Us</i></h2>
+
+        </div><!--/ #header-->
+
+        <!--nav------------------------------------------------->
+        <div id="nav">
+
+           
+
+                <!--internal links:pages inside of website-->
+                <!--RELATIVE PATHS-->
+                <a href="index.html" class="special">| &nbsp;HOME&nbsp; |</a>
+                <a href="places.html" class="special">| PLACES |</a>
+                <a href="people.html" class="special">| PEOPLE |</a>
+                
+
+
+
+            <br>
+            <!--internal JUMP links:jumps to section based on #id of current page-->
+            <a href="#footer">BOTTOM OF PAGE</a>
+
+            <br>
+            <!--external links:pages outside of website-->
+            <!--ABSOLUTE PATHS-->
+            <a href="https://www.hbo.com/the-last-of-us" target="_blank">|Official HBO Site |</a>
+
+        </div><!--/ #nav-->
+
+        <!--page-content---------------------------------------->
+        <div id="page-content" style="background-color:red;">
+
+            <h2 class="border"><u>ABOUT</u></h2>
+
+        </div><!--/ #page-content-->
+
+        <!--footer---------------------------------------------->
+        <div id="footer" class="border bg">
+
+            <a href="#header">BACK TO TOP</a>
+            <p>&copy;K TRUCHON | SE111 | 202420</p>
+
+            <!--IMAGE of VALIDATION- uncomment out @ end-->
+        <!--
+            <img src="" alt="HOME page validation screenshot" width="100%">
+        -->
+
+        </div><!--/ #footer-->
+
+    </div><!--/ #wrapper-->
+</body>
+</html>
