@@ -6,13 +6,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="K TRUCHON">
-    <meta name="description" content="W4 Demo">
+    <meta name="description" content="W4 Demo - CAST">
 
-    <title>W4 | Demo</title>
+    <title>&#127902; W4 | Demo</title>
 
     <!--in-document styling-->
     <style>
+        /*write CSS in here*/
 
+        body {
+
+         background-image: url("images/bgs/records.jpg");
+
+        }
+
+        #container {
+
+            width:980px;
+            padding:20px;/*adds space between content + border of element*/
+            margin:auto; /*once width is set, use 'auto' to center horizontally*/
+
+            border:2px solid black;
+
+            box-shadow:0 0 8px black;
+
+            border-radius:15px; /*rounds corners*/
+
+            background-color:rgba(33, 33, 33, 0.95);
+
+            color:white;
+        }
+
+        #buttons {
+
+            width:600px;
+            height:60px;
+            margin:auto;
+            /*border:1px solid white;*/
+
+        }
+
+        .link {
+
+            width:150px;
+            height:50px;
+            margin-left:23px;
+            margin-right:23px;
+
+            text-decoration:none;/*removes underline*/
+            font-size:30px;
+
+            float:left; /*puts buttons back in a horiz. line*/
+            text-align:center;
+            line-height:50px;
+
+            background-color:rgb(221, 100, 6);
+            color:white;
+
+            box-shadow:0 0 8px black; /*adds a drop shadow*/
+
+            border-radius:15px;
+
+        }
+
+        .link:hover {
+
+            background-image: url("images/btn_hover.PNG");
+            color:white;
+            background-size: 150px;
+
+            box-shadow:0 0 8px white; /*adds a glow*/
+        }
+
+        .link:visited {
+
+            color:black;
+        }
+
+        #header {
+            text-align:center;
+            padding:0;
+            margin-bottom:0;
+
+        }
+
+        h1 {
+
+            font-size:85px;
+            padding:0;
+            margin:0;
+        }
+
+        h2 {
+            font-size:55px;
+            text-align:center;
+
+            padding:0;
+            margin:0;
+        }
+
+        h4 {
+
+            font-size:35px;
+        }
+
+        #footer {
+            text-align:center;
+        }
+
+
+        #main-image {
+            border:5px solid rgb(29, 29, 29);
+            margin:10px;
+            padding:20px;
+            width:850px;
+            margin-left:20px;
+            box-shadow:0 0 8px black;
+        }
+
+        div {
+            padding:20px;
+            margin:10px 5px;
+        }
+
+        a {
+
+            background-color:orange;
+            text-decoration: none;
+            color:white;
+        }
+
+        a:hover {
+            background-color:black;
+        }
+
+        a:visited {
+            color:white;
+        }
+
+        #roof {
+
+            width:100%;
+
+        }
+
+        .special-img {
+            width:100%;
+        }
+
+        img:hover {
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
     </style>
 </head>
 <body>
@@ -23,15 +168,19 @@
         <div id="header">
 
             <h1><em>Empire Records</em></h1>
+            <h3>Damn the man, SAVE THE EMPIRE!</h3>
 
         </div><!--/ #header-->
         <!--NAV-->
         <div id="nav">
 
-            <!--internal page links: RELATIVE PATHS-->
-            <a href="index.html">HOME</a>
-            <a href="cast.html">CAST</a>
-            <a href="review.html">REVIEW</a>
+            <div id="buttons"><!--added to center buttons in nav-->
+
+                <!--internal page links: RELATIVE PATHS-->
+                <a href="index.html" class="link">HOME</a>
+                <a href="cast.html" class="link">CAST</a>
+                <a href="review.html" class="link">REVIEW</a>
+            </div><!--/ #buttons-->
 
         </div><!--/ #nav-->
 
@@ -39,7 +188,7 @@
         <!--PAGECONTENT-->
         <div id="content">
 
-            <h2><u>CAST</u> of the movie <em>Empire Records</em> (1995)</h2>
+            <h2>CAST of the movie <br> <em>Empire Records</em> (1995)</h2>
 
             <!--reusable container for EACH character-->
             <div class="character">
@@ -79,9 +228,9 @@
             <p>&copy; K TRUCHON | SE111 | 202420</p>
 
             <!--IMAGE OF VALIDATION - for EACH page!-->
-        <!--
-            <img src="images/___" alt="validatin of INDEX page" style="width:100%">
-        -->
+
+            <img src="images/validation/cast.png" alt="validatin of INDEX page" style="width:100%">
+
 
         </div><!--/ #footer-->
 
