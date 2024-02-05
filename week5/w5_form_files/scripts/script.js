@@ -7,11 +7,11 @@ entries = urlParams.entries();
 
 var body = document.querySelector("body")
 for(const entry of entries) {
-    var p = document.createElement('p') 
+    var p = document.createelement('p') 
     var text = document.createTextNode(`${entry[0]}: ${entry[1]}`)
     
-    body.appendChild(p)
     p.appendChild(text)
-    
+    body.appendChild(p)
+
     console.log(`${entry[0]}: ${entry[1]}`);
 }

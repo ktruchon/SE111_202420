@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>W5D1 | Tables & Forms</title>
 
-    <style>
+   <style>
         table, td {
             border:1px solid black;
         }
@@ -14,6 +14,8 @@
         form {
             border:1px solid blue;
         }
+
+
     </style>
 </head>
 <body>
@@ -44,6 +46,7 @@
             </tr>
         </thead>
         <tbody>
+           
             <!-- row -->
             <tr>
                 <td>
@@ -68,6 +71,30 @@
                     <p>7</p>
                 </td>
             </tr>
+
+            <tr>
+                <td>
+                    <p>8</p>
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <p>10</p>
+                </td>
+                <td>
+                    <p>11</p>
+                </td>
+                <td>
+                    <p>12</p>
+                </td>
+                <td>
+                    <p>Katharine<br>Marie<br>Truchon</p>
+                </td>
+                <td>
+                    <p>14</p>
+                </td>
+            </tr>
         </tbody>
     </table>
 
@@ -76,13 +103,11 @@
     <form method="GET">
 
         <label for="fname">First Name: </label>
-   
         <input type="text" name="fname">
 
  
         <br>
         <label for="lname">Last Name: </label>
-  
         <input type="text" name="lname">
 
         <br>
@@ -93,9 +118,13 @@
         <br>
 
         <br>
+        <label for="age">Age: </label>
+        <input type="text" id="age">
+
+        <br>
         <label for="color">Pick Fave Color</label> <br>
 
-        <input type="radio" name="color" value="black">BLACK <br>
+        <input type="" name="color" value="black">BLACK <br>
         <input type="radio" name="color" value="grey">GREY <br>
         <input type="radio" name="color" value="white">WHITE <br>
 
@@ -103,5 +132,6 @@
         <br>
         <input type="submit" value="SUBMIT :]">
     </form>
+
 </body>
 </html>
