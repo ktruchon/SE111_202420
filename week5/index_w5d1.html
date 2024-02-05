@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W5D1 | Tables & Forms</title>
+
+    <style>
+        table, td {
+            border:1px solid black;
+        }
+
+        form {
+            border:1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    <p>Monday</p>
+                </td>
+                <td>
+                    <p>Tuesday</p>
+                </td>
+                <td>
+                    <p>Wednesday</p>
+                </td>
+                <td>
+                    <p>Thursday</p>
+                </td>
+                <td>
+                    <p>Friday</p>
+                </td>
+                <td>
+                    <p>Saturday</p>
+                </td>
+                <td>
+                    <p>Sunday</p>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- row -->
+            <tr>
+                <td>
+                    <p>1</p>
+                </td>
+                <td>
+                    <p>2</p>
+                </td>
+                <td>
+                    <p>3</p>
+                </td>
+                <td>
+                    <p>4</p>
+                </td>
+                <td>
+                    <p>5</p>
+                </td>
+                <td>
+                    <p>6</p>
+                </td>
+                <td>
+                    <p>7</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <form method="GET">
+
+        <label for="fname">First Name: </label>
+   
+        <input type="text" name="fname">
+
+ 
+        <br>
+        <label for="lname">Last Name: </label>
+  
+        <input type="text" name="lname">
+
+        <br>
+
+        <label for="email">Email: </label>
+        <input type="text" name="email">
+
+        <br>
+
+        <br>
+        <label for="color">Pick Fave Color</label> <br>
+
+        <input type="radio" name="color" value="black">BLACK <br>
+        <input type="radio" name="color" value="grey">GREY <br>
+        <input type="radio" name="color" value="white">WHITE <br>
+
+
+        <br>
+        <input type="submit" value="SUBMIT :]">
+    </form>
+</body>
+</html>
