@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="K Truchon">
+    <meta name="description" content="W7 Demo - RPS *TEST*">
+
+    <title>RPS</title>
+
+    <!--IN DOCUMENT STYLING-->
+    <style>
+        /*write CSS in here!*/
+
+        /*selecting an element by TAG TYPE*/
+        /*in CSS, this makes ALL elements of the type styled*/
+        body {
+            background-color:grey;
+        }
+
+        table {
+            border:1px solid white;
+            width:50px;
+            margin:auto;
+            text-align:left;
+        }
+
+
+        /*selecting an element by #ID*/
+        /*in CSS, this makes ONLY THE ELEMENT with the ID styled*/
+
+        #wrapper {
+            width:1200px;
+            background-color:darkslategray;
+            color:white;
+            font-family:Helvetica, sans-serif;
+            margin:auto;
+            padding:10px;
+            box-shadow: 0 0 8px black;
+            text-align:center;
+        }
+
+        #content {
+            border:1px solid lightslategrey;
+            padding:10px;
+            margin:20px 10px;
+
+        }
+
+        
+
+        #footer {
+            font-size: 10px;
+        }
+
+        /*selecting an element by .CLASS*/
+        /*in CSS, this makes ALL elements of the CLASS NAME styled*/
+        .button {
+            width:200px;
+            height:50px;
+            background-color:lightslategray;
+            color:darkslategrey;
+            line-height:50px;
+            text-align:center;
+            margin:auto;
+            margin-top:25px;
+            display:block;
+            border:1px solid white;
+        }
+
+        .button:hover {
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+
+    <!--#wrapper for main HTML content-->
+    <div id="wrapper">
+
+        <!-- for game title-->
+        <div id="header">
+
+            <h1>Rocks, Paper, Scissors!</h1>
+            <h3>A practice in Javascript</h3>
+            <br>
+            <p><i>click on your choice to reveal computer's choice and game result</i></p>
+        </div>
+
+        <!--nav for game stuff-->
+        <div id="nav">
+
+            
+        </div>
+
+        <!--main content for game-->
+        <!--THIS PAGE: form for player, button to launch game.html-->
+        <div id="content">
+
+            <!--play with just buttons first-->
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+
+
+            <!--build out sections of the playing space:
+                    *PLAYER
+                    *OUTCOME BAR
+                    *COMPUTER
+            -->
+            <div id="gameSpace">
+                <div id="playerSpace">
+
+                    <h2 id="playerName">Player Name</h2>
+
+                    <!-- p = player !-->
+                    <img src="images/rock.jpg" id="rock_p" onclick="play(0);"/>
+                    <img src="images/paper.jpg" id="paper_p" onclick="play(1);"/>
+                    <img src="images/scissors.jpg" id="scissors_p" onclick="play(2);"/>
+
+                </div>
+
+                <div id="resultSpace">
+
+                    <p>PLAYER CHOSE: <span id="pChoice"></span>COMPUTER CHOSE: <span id="cChoice"></span></p>
+                    <br>
+                    <p>GAME OUTCOME: <span id="results"></span></p>
+
+                </div>
+
+                <div id="compSpace">
+
+                    <h2 id="compName">Computer</h2>
+
+                    <!-- c = computer !-->
+                    <img src="images/rock.jpg" id="rock_c" />
+                    <img src="images/paper.jpg" id="paper_c" />
+                    <img src="images/scissors.jpg" id="scissors_c" />
+
+                </div>
+
+            </div><!--/ #gameSpace-->
+
+
+            <!--see final game result percentage button - tying events to non-forms-->
+            <div id="btn">
+                <a href="end.html" class="button">RESULTS!</a>
+            </div>
+
+        </div>
+
+
+        <!--footer for final notes of game site-->
+        <div id="footer">
+
+            <p>&copy; K TRUCHON | SE111 | 202420</p>
+            <h6><a href="../../index.html">KT's Repo Index</a></h6>
+
+            <!--screeshot of validation below-->
+            <!--nesting an image inside of an anchor element makes the image the link!-->
+            <!--
+                
+                <a href="images/_____"><img src="images/___" alt="screenshot of validation for page" style="width:50%"></a>
+            -->
+
+        </div>
+
+    </div>
+
+    <!--SCRIPT TAGS usually BELONG @ END of BODY ELEMENT (after HTML content)-->
+    <!--IN DOCUMENT JAVASCRIPT BELONGS BELOW-->
+    <script>
+        //write JS in here
+        //loads after HTML content, so all HTML content is available! needed to gain access to form values without query string
+
+        //GETTING INFOR FROM FORM INPUT ELEMENTS
+        //we need to access the query string to get the data now, since we are on a different page and the prior id's no longer exist in the same way
+
+
+        //if player doesnt include a name, set the value displayed to be "Player1"
+
+
+
+
+        //set up an actionable event so that when a button is clicked, information is written to the page. FIRST: add event listener for event (action)
+        //adding an event listern to the #enter-button at end of the mini form
+        document.querySelector(`#enter-button`).addEventListener(`click`, alertInfo)
+
+    </script>
+    
+</body>
+</html>

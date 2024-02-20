@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="K Truchon">
+    <meta name="description" content="W7 Demo - RPS *TEST*">
+
+    <title>RPS</title>
+
+    <!--IN DOCUMENT STYLING-->
+    <style>
+        /*write CSS in here!*/
+
+        /*selecting an element by TAG TYPE*/
+        /*in CSS, this makes ALL elements of the type styled*/
+        body {
+            background-color:grey;
+        }
+
+        table {
+            border:1px solid white;
+            width:50px;
+            margin:auto;
+            text-align:left;
+        }
+
+
+        /*selecting an element by #ID*/
+        /*in CSS, this makes ONLY THE ELEMENT with the ID styled*/
+
+        #wrapper {
+            width:1200px;
+            background-color:darkslategray;
+            color:white;
+            font-family:Helvetica, sans-serif;
+            margin:auto;
+            padding:10px;
+            box-shadow: 0 0 8px black;
+            text-align:center;
+        }
+
+        #content {
+            border:1px solid lightslategrey;
+            padding:10px;
+            margin:20px 10px;
+
+        }
+
+        
+
+        #footer {
+            font-size: 10px;
+        }
+
+        /*selecting an element by .CLASS*/
+        /*in CSS, this makes ALL elements of the CLASS NAME styled*/
+        .button {
+            width:200px;
+            height:50px;
+            background-color:lightslategray;
+            color:darkslategrey;
+            line-height:50px;
+            text-align:center;
+            margin:auto;
+            margin-top:25px;
+            display:block;
+            border:1px solid white;
+        }
+
+        .button:hover {
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+
+    <!--#wrapper for main HTML content-->
+    <div id="wrapper">
+
+        <!-- for game title-->
+        <div id="header">
+
+            <h1>Rocks, Paper, Scissors!</h1>
+            <h3>A practice in Javascript</h3>
+        </div>
+
+        <!--nav for game stuff-->
+        <div id="nav">
+
+            
+        </div>
+
+        <!--main content for game-->
+        <!--THIS PAGE: form for player, button to launch game.html-->
+        <div id="content">
+
+
+            <!--build a form with a table for the user to fill out-->
+            <!--the form submit button will activate the game..html file-->
+            <form id="myForm">
+
+                <table>
+
+                    <tbody>
+                        <!--player name-->
+                        <tr>
+                            <td>
+                                <label for="player">Player:</label>
+                            </td>
+                            <td>
+                                <input type="text" name="player" id="player" maxlength="25" placeholder="Jane Doe" ><!--adding in required for part 2 with the querystring-->
+                            </td>
+                        </tr>
+
+
+                        <!--submit button to finish form-->
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <input type="submit" value="PLAY GAME!" id="play">
+                            </td>
+                            
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </form>
+
+            <!--space to write the player's name to the page for practice-->
+            <h3 id="pName"></h3>
+
+            <!--play with just buttons first-->
+            <button id="rock" onclick="play(0);">Rock</button>
+            <button id="paper" onclick="play(1);">Paper</button>
+            <button id="scissors" onclick="play(2);">Scissors</button>
+
+            <div id="resultBox">
+                <h3>
+                    PLAYER CHOSE: <span id="playerResult"></span> 
+                    | COMPUTER CHOSE: <span id="computerResult"></span>
+                </h3>
+
+                <h5 id="gameResult"></h5>
+
+                <div id="played">
+                    <h5>GAMES PLAYED: <span id="gamesPlayed"></span></h5>
+                    <h5>
+                        WINS: <span id="wins"></span> 
+                        | TIES: <span id="ties"></span> 
+                        | LOSSES: <span id="losses"></span></h5>
+                    
+                </div>
+
+                <div id="viewResults">
+                    <p class="button" id="results">View Results</p>
+                    <h5 id="per"></h5>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--footer for final notes of game site-->
+        <div id="footer">
+
+            <p>&copy; K TRUCHON | SE111 | 202420</p>
+            <h6><a href="../../index.html">KT's Repo Index</a></h6>
+
+            <!--screeshot of validation below-->
+            <!--nesting an image inside of an anchor element makes the image the link!-->
+            <!--
+                
+                <a href="images/_____"><img src="images/___" alt="screenshot of validation for page" style="width:50%"></a>
+            -->
+
+        </div>
+
+    </div>
+
+    <!--SCRIPT TAGS usually BELONG @ END of BODY ELEMENT (after HTML content)-->
+    <!--IN DOCUMENT JAVASCRIPT BELONGS BELOW-->
+    <script>
+        //write JS in here
+        //loads after HTML content, so all HTML content is available! needed to gain access to form values without query string
+
+        //play only for as many games as user states
+        var playCount = 0 
+
+        
+
+
+        //GETTING INFOR FROM FORM INPUT ELEMENTS
+        //create some global variables to hold the input elements
+        var player = document.querySelector(`#player`) //querySelector uses similar selection to CSS tag type and #ID name
+        var gameCount = document.querySelector(`#gameCount`)
+        var betWin = document.querySelector(`#betWin`)
+        
+        var pName = document.getElementById(`pName`) //.getElementById vs querySelector
+
+        //shows that ELEMENTS are now stored, not just single value 
+        console.log(player, gameCount, betWin)
+
+        //we can now access attributes (properties) of these elements 
+        console.log(player.id)
+        console.log(player.type)
+        console.log(player.value) //notice that this is EMPTY because the button hasnt been clicked yet!
+
+        //INTRO TO EVENT LISTENERS - prevent the form from reloading the page
+        var form = document.getElementById("myForm")
+        function handleForm(event) { event.preventDefault() } 
+        form.addEventListener('submit', handleForm)
+
+        //add an event listener to the form's submit id=play button, so when clicked a function runs
+        //slow way - multiple instructions
+        var playConfirm = document.querySelector(`#play`)
+        playConfirm.addEventListener(`click`, confirm)
+        //above adds a click type event (can be used for non-buttos too!); confirm is the name of the function that WILL RUN *ONCE* the event (click) hasn't taken place
+
+        //objects are read from left to right, one . at a time
+        //short way:
+        //document.querySelector(`#play`).playConfirm.addEventListener(`click`, confirm)
+        function confirm(event) //event based functions need to be passed the event parameter - this ensures that any information from the event (click) is available to the function - more on this in W8!
+        {
+            console.log(`you will see this message when the form button is clicked`)
+            //local scope - values declared in here are only accessible within the function
+           
+            //****//var playerName = document.querySelector(`#player`).value //well that's a lot to write
+            //****//console.log(playerName)
+            //OH WAIT! we already have the player input element stored to 'player' globally SO it's accessible in here!!
+
+            
+            //only get the .values from the form info once the button has been clicked
+            //how do we know the button has been clicked? because the function is running 8D
+            var playerName = player.value   //player is a global variable, so its accessible anywhere
+            console.log(playerName)
+
+            //alert the user to say hello to them personally using their form info
+            //first, build your message:
+            //alert(`Hello there ${playerName}!`)
+
+            //if we didn't need to store the player's name, we could also just do this: 
+            //THE POWER OF OBJECTS :D
+            //alert(`I'm an object version of the previous message 8D\nHello there ${player.value}`)
+
+            //PRACTICINGN WITH CONDITONS -- if/else if/else
+            if (playerName == `Katie`)
+            {
+                var tempName = playerName //store player name into temp to change it
+                playerName = `&#128081; ` + playerName + ` &#128081;` //remake playername with fun emojis
+            }
+            else if (playerName == `George`)
+            {
+                //&#128021;
+                var tempName = playerName
+                playerName = `&#128021; ` + playerName + ` &#128021;`
+
+            }
+            else 
+            {
+                //&heartsuit;
+                var tempName = playerName
+                playerName = `&heartsuit; ` + playerName + ` &heartsuit;`
+
+            }
+
+
+            //write something to the HTML page 
+            //.innnerHTML gives us access to what is between <> HERE </> of ID'ed element
+            pName.innerHTML += playerName //also test without refreshing page and using a different name
+            //versus:
+            //***//pName.innerHTML = playerName
+
+            //alert() requires interaction before moving forward in the script read
+            //by placing this here, we can "stop" the page from being reloaded when our button is clicked
+            //alert(`stop!`)
+
+        }//confirm() CLOSE
+
+
+        //notice that this runs BEFORE the function - because function must be CLICKED - JS doesnt always "work" in top-down order, it also takes into account EVENTS
+
+        //testing local concept vs global concept - see how this is still empty?
+        console.log(`do i work? PLAYER NAME: ${player.value}`)
+
+
+        //GET STUFF FOR BUTTON BASED GAME PLAY
+        var playerResult = document.getElementById(`playerResult`)
+        var computerResult = document.getElementById(`computerResult`)
+        var gameResult = document.getElementById(`gameResult`)
+
+        //declare a global variable for the game count wins, losses, and ties
+        var game_count = 0 
+        var win_count = 0 
+        var lose_count = 0
+        var tie_count = 0
+
+        //show results of this round
+        function results(p, c, g)
+        {
+            console.log(`RESULTS(): ${p} ${c} ${g}`)
+            playerResult.style.color = `green`
+            playerResult.innerHTML = p
+            computerResult.style.color = `red`
+            computerResult.innerHTML = c
+
+            gameResult.style.color = `lightblue`
+            gameResult.style.fontSize = `60px`
+            gameResult.innerHTML = g
+
+            //update the scorecared
+            scoreCard(g)
+        }//results() CLOSE
+
+
+        //FOR PLAY BUTTONS OF GAMES
+        //rock = 0 ; paper = 1 ; scissors = 2
+        function play(x) 
+        {
+
+            var p_choice = x
+            //randomize the computer's choice! math.floor and * 2.9 limits choices
+            var c_choice = Math.floor(Math.random() * 2.9)
+
+            //declare variables for the result builds
+            var player_chose, computer_chose, game
+
+            console.log(`player chose: ${p_choice} \ncomp chose: ${c_choice}`)
+            //p_choice is either 0, 1, or 2 depending on which buttons was clicked
+            //let's try out a SWITCH CASE :D used for conditions with set results (days of week, specific outcomes, not ranges)
+
+            switch(p_choice)
+            {
+
+                //p_choice == 0 - player has chosen rock
+                case(0):
+                    
+                    //player_chose = `Rock`
+                    player_chose = `&#129704;`
+                
+                    //there are 3 options if the player chose 0
+
+                    if (c_choice == 0) //comp is also rock - TIE
+                    {
+                        //computer_chose = `rock`
+                        computer_chose = `&#129704;`
+                        game = `TIE XD`
+
+                    }
+                    else if (c_choice == 1) //comp is paper - LOSE
+                    {
+                        computer_chose = `&#128196;`
+                        game = `LOSE :[`
+
+                    }
+                    else //comp is scissors - WIN
+                    {
+                        computer_chose = `&#9986;`
+                        game = `WIN :D`
+
+                    }
+
+                    break
+
+                //p_choice == 1 - player has chosen paper
+                case(1):
+                    
+                    //player_chose = `Rock`
+                    player_chose = `Paper`
+                
+                    //there are 3 options if the player chose 0
+
+                    if (c_choice == 0) //comp is rock - WIN
+                    {
+                        //computer_chose = `rock`
+                        computer_chose = `Rock`
+                        game = `WIN :D`
+
+                    }
+                    else if (c_choice == 1) //comp is paper - TIE
+                    {
+                        computer_chose = `Paper`
+                        game = `TIE XD`
+
+                    }
+                    else //comp is scissors - LOSE
+                    {
+                        computer_chose = `Scissors`
+                        game = `LOSE :[`
+
+                    }
+
+                    break
+
+                //p_choice == 2 - player has chosen scissors
+                case(2):
+                    
+                    //player_chose = `Rock`
+                    player_chose = `Scissors`
+                
+                    //there are 3 options if the player chose 0
+
+                    if (c_choice == 0) //comp is rock - LOSE
+                    {
+                        //computer_chose = `rock`
+                        computer_chose = `Rock`
+                        game = `LOSE :[`
+
+                    }
+                    else if (c_choice == 1) //comp is paper - WIN
+                    {
+                        computer_chose = `PAPER`
+                        game = `WIN :D`
+
+                    }
+                    else //comp is scissors - TIE
+                    {
+                        computer_chose = `Scissors`
+                        game = `TIE XD`
+
+                    }
+
+                    break
+                
+            }//end switch(p_choice)
+
+            results(player_chose, computer_chose, game)
+
+        }//play() CLOSE
+
+
+        var gamesPlayed = document.getElementById(`gamesPlayed`)
+        var wins = document.getElementById(`wins`)
+        var ties = document.getElementById(`ties`)
+        var losses = document.getElementById(`losses`)
+
+        var per = document.getElementById(`per`)
+
+
+        function scoreCard(g)
+        {
+
+            game_count += 1
+
+            if (g == `WIN :D`)
+            {
+
+                win_count += 1
+            }
+
+            else if (g == `LOSE :[`)
+            {
+                lose_count += 1
+            }
+            else
+            {
+                tie_count += 1
+            }
+
+            //update globals
+            gamesPlayed.innerHTML = game_count
+            wins.innerHTML = win_count 
+            ties.innerHTML = tie_count 
+            losses.innerHTML = lose_count 
+
+        }
+
+
+        //add event listener to VIEW RESULTS button
+        var viewResults = document.querySelector(`#viewResults`).addEventListener(`click`, viewR)
+        
+        function viewR(event) {
+
+            var win_perc = (win_count / game_count) * 100 
+            per.innerHTML = win_perc.toFixed(2) + `% Winning`
+
+        }
+
+    </script>
+    
+</body>
+</html>
