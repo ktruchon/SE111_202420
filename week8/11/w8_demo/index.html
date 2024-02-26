@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="- YOUR NAME HERE -">
+    <meta name="description" content="W8 Demo - JS Arrays, Objects, & RPS!">
+
+    <title>Rocks Paper Scissors!</title>
+
+    <!--IN DOCUMENT STYLING-->
+    <style>
+        /*write CSS in here!*/
+
+        /*selecting an element by TAG TYPE*/
+        /*in CSS, this makes ALL elements of the type styled*/
+        body {
+            background-color:grey;
+        }
+
+        table {
+            border:1px solid white;
+            width:50px;
+            margin:auto;
+            text-align:left;
+        }
+
+
+        /*selecting an element by #ID*/
+        /*in CSS, this makes ONLY THE ELEMENT with the ID styled*/
+
+        #wrapper {
+            width:1200px;
+            background-color:darkslategray;
+            color:white;
+            font-family:Helvetica, sans-serif;
+            margin:auto;
+            padding:10px;
+            box-shadow: 0 0 8px black;
+            text-align:center;
+        }
+
+        #content {
+            border:1px solid lightslategrey;
+            padding:10px;
+            margin:20px 10px;
+
+        }
+
+        
+
+        #footer {
+            font-size: 10px;
+        }
+
+        /*selecting an element by .CLASS*/
+        /*in CSS, this makes ALL elements of the CLASS NAME styled*/
+        .button {
+            width:200px;
+            height:50px;
+            background-color:lightslategray;
+            color:darkslategrey;
+            line-height:50px;
+            text-align:center;
+            margin:auto;
+            margin-top:25px;
+            display:block;
+            border:1px solid white;
+        }
+
+        .button:hover {
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+
+    <!--#wrapper for main HTML content-->
+    <div id="wrapper">
+
+        <!-- for game title-->
+        <div id="header">
+            <h1>Rocks, Paper, Scissors!</h1>
+            <h3>A practice in Javascript</h3>
+        </div>
+
+        <!--nav for extra game stuff-->
+        <div id="nav">
+
+
+
+            
+        </div>
+
+        <!--main content for game-->
+        <!--THIS PAGE: form for player name-->
+        <div id="content">
+            <!--build a form with a table for the user to fill out-->
+            <!--the form submit button will have an event listener added to it in JS-->
+            <form id="myForm">
+
+                <table>
+
+                    <tbody>
+                        <!--player name-->
+                        <tr>
+                            <td>
+                                <label for="player">Player Name:</label>
+                            </td>
+                            <td>
+                                <input type="text" name="player" id="player" maxlength="25" placeholder="Jane Doe" ><!--adding in required for part 2 with the querystring-->
+                            </td>
+                        </tr>
+
+
+                        <!--submit button to finish form-->
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <input type="submit" value="Let's Play!" id="play">
+                            </td>
+                            
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </form>
+
+            <!--space to write the player's name to the page LEAVE CONTENT EMPTY-->
+            <!--this will be accomplished by writing in the <script>!-->
+            <h3 id="pName"></h3>
+
+            <!--playing the game with just simple buttons-->
+            <!--each button, when clicked, calls the play() which will be written in the <script>-->
+
+<!--
+            <button id="rock" onclick="play(0);">Rock</button>
+            <button id="paper" onclick="play(1);">Paper</button>
+            <button id="scissors" onclick="play(2);">Scissors</button>
+-->
+            <!--pay attention to the arguments here: 0 = rock, 1 = paper, 2 = scissors-->
+
+            <!--once the player has chosen an option, we need to display the results to them-->
+            <div id="resultBox">
+
+                <!--this element both supports the UI/UX but also helps us text writing to the HTML with our <script>-->
+                <!--NOTICE the empty <span>s - this is where new HTML content will be written!-->
+                <h3>
+                    PLAYER CHOSE: <span id="playerResult"></span> 
+                    | COMPUTER CHOSE: <span id="computerResult"></span>
+                </h3>
+
+                <!--below will show: WIN :D or TIE XD or LOSE :[-->
+                <h5 id="gameResult"></h5>
+
+                <!--more info for the player to see based on gameplay without refreshing the page-->
+                <!--pay attention how you accomplished the above section, as it will also be used for the two below sections-->
+                <div id="played">
+                    <h5>GAMES PLAYED: <span id="gamesPlayed"></span></h5>
+                    <h4>Player Games: <span id="p-game-array"></span></h4>
+                    <h4>Computer Games: <span id="c-game-array"></span></h4>
+                    <h5>
+                        WINS: <span id="wins"></span> 
+                        | TIES: <span id="ties"></span> 
+                        | LOSSES: <span id="losses"></span>
+                    </h5>
+
+                    
+                </div>
+
+                <!--only when the usr clicks on this button will they see the current percentage results of their gameplay-->
+                <div id="viewResults">
+                    <p class="button" id="results">View Results</p>
+
+                    <!--win percentage will display below-->
+                    <h5 id="per"></h5>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--footer for final notes of game site-->
+        <div id="footer">
+
+            <p>&copy; -YOUR NAME GOES HERE- | SE111 | 202420</p>
+            <h6><a href="../../index.html">KT's Repo Index</a></h6> <!--keep this KT's repo link ;] yours goes in the #nav aread-->
+
+            <!--screeshot of validation below-->
+            <!--nesting an image inside of an anchor element makes the image the link!-->
+            <!--
+                
+                <a href="images/_____"><img src="images/___" alt="screenshot of validation for page" style="width:50%"></a>
+            -->
+
+            <div id="obj-info">
+                <!--the JS Array of Objects will be written HERE-->
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--SCRIPT TAGS usually BELONG @ END of BODY ELEMENT (after HTML content)-->
+    <!--IN DOCUMENT JAVASCRIPT BELONGS BELOW-->
+    <script>
+        //write JS in here; loads after HTML content, so all HTML content is available! needed to gain access to form values without query string
+
+        //---INTRO TO JS ARRAYS & OBJECTS-------------------------------------------------------------------------
+        //create a new array of names and populate it!
+        var people = [
+            "Katie", 
+            "Marty", 
+            "Sal", 
+            "Jay", 
+            "Tim",
+            "Jordan"
+        ]
+
+        //array name talks about WHOLE set
+        console.log(people)
+
+        //array name + KEY [index] talks about ONE value
+        console.log(people[2])//change the [#] to look at a different name
+
+        //everything in JS is an object, so arrays take on properties whenever built, like .length
+        console.log(`There are ${people.length} names in the 'people' array`)
+
+        //add a name to the array 
+        people[6] = "James" //long way :[ requires knowing next index #
+        console.log(people) //7ppl
+
+        people[people.length] = "Scott" 
+        //array.length will always give you the next available index #
+        console.log(people) //8ppl
+
+        people.push("George")   //.append() in Python
+        console.log(people) //9ppl
+
+        people.push(prompt("Enter a name to add to the array: "))
+        console.log(people) //10ppl
+
+        //display the last person's name in the people array
+        console.log(people[people.length - 1])
+
+        //BUILD A PARALLEL ARRAY TO people THAT HOUSES fave animals
+        var faveAnimals = [
+            "elephant", 
+            "dog", 
+            "birds", 
+            "jaguar",
+            "meerkat",
+            "panda bear",
+            "duck",
+            "dragon",
+            "emu"
+        ]
+
+        //ask for last person's fave animal via prompt
+        faveAnimals.push(prompt(`Enter ${people[people.length - 1]}'s fave animal: `)) //people.length -1 --> LAST value in array!
+
+        //PROCESS THROUGH THE PARALLEL ARRAYS (process + data structure --> FOR LOOP!)
+        //let is a block scope declarative - the variable only exists within the block of code
+        for (let index = 0; index < people.length; index++)
+        {
+            //at end of loop --> index++ --> index+= 1 --> index = index + 1
+            //below the instruction will happen to EVERY value in the arrays
+            console.log(`${people[index]}'s favorite animal is/are a(n): ${faveAnimals[index]}`)
+
+        }//end for processing parallel arrays
+
+
+        //BUILDING OBJECTS
+        var pet1 = {
+            title: "Mr.",
+            fname: "George",
+            mname: "Bulleit",
+            lname: "Wayne", //because BATMAN
+            age: 10,
+            faveToy: "Nylo Bone",
+            hasSiblings: true, 
+            info: function() {
+                alert(`
+                ${this.title} ${this.fname} ${this.mname} ${this.lname} is ${this.age} years old!\n
+                Their favorite toy is: ${this.faveToy}\n
+                Do they have siblings? ${this.hasSiblings}
+                `)
+            }
+        }
+        //using 'this' inside of an object references THAT OBJECT - makes reusing object property+values easier
+
+        //view the object in the console
+        console.log(pet1)
+
+        //view the object's title in the console
+        console.log(pet1.title)     //object notation to access value
+        console.log(pet1['title'])  //associative array syntax to access value
+
+
+        //PROCESS through the object to view each property and value 
+        for (let key in pet1) //for every key (property) in the stated object
+        {
+            console.log(`${key}: ${pet1[key]}`) 
+            //object[key] <-- this is why we discuss associative arrays
+        }
+
+        var pet2 = {
+            title: "Miss.",
+            fname: "Marlowe",
+            mname: "Charlie-Mae",
+            lname: "Marple", //because alliteration + Mrs. Marple deteciving
+            age: 3.5,
+            faveToy: "alpaca baby",
+            hasSiblings: true, 
+            info: function() {
+                alert(`
+                ${this.title} ${this.fname} ${this.mname} ${this.lname} is ${this.age} years old!\n
+                Their favorite toy is: ${this.faveToy}\n
+                Do they have siblings? ${this.hasSiblings}
+                `)
+            }
+        }
+        
+        //run the info function for pet1
+        pet1.info()
+        //run the info function for pet2
+        pet2.info()
+
+        //---ARRAYS POPULATED WITH OBJECTS------------------------------------------------------------------------
+
+        //build array first
+        var pets = []
+
+        //add objects to the array - pet1 and pet2
+        pets.push(pet1)
+        pets.push(pet2)
+        console.log(pets)
+        /*
+        can also do:
+            var pets = [
+                pet1, 
+                pet2
+            ]
+        or:
+            var pet = []
+            pets[0] = pet1
+            pets[1] = pet2
+        */
+
+        //process through the array of objects (structure of structures --> loop in a loop) LOOPCEPTION! loops inside of loops! 
+
+        //pets is an ARRAY so a standard for loop to start
+        for (let i = 0; i < pets.length; i++)
+        {
+            //the outter for loop lets us move through items in the array
+            //the items in the array are OBJECTS!
+            console.log(pets[i]) //<--look! the objects :]
+
+            //to view each value in each of the objects, we need an interior loop!
+            //since they're objects, we use the for key in loop here
+            for (let key in pets[i]) //for every key in the current object
+            {
+                console.log(`${key.toUpperCase()}: ${pets[i][key]}`)
+            }
+        }
+
+
+        //SELECT & STORE the #obj-info element to the script
+        var footInfo = document.querySelector(`#obj-info`)
+        //above same as: var footInfo = document.getElementById(`obj-info`)
+
+        //create an empty string to hold the content
+        var content = ``
+
+        //write the content to the page
+        for (let i = 0; i < pets.length; i++)
+        {
+            for (key in pets[i])
+            {
+                content += `<p><b>${key.toUpperCase()}:</b> ${pets[i][key]}</p>`
+            }
+
+            //add horizontal rule after each pet object
+            content += `<hr>`
+        }
+
+        footInfo.innerHTML += content   //adds new giant string in content to the footInfo (#obj-info div in the footer)
+
+
+
+
+
+
+
+
+        //---ROCKS PAPER SCISSORS SCRIPT--------------------------------------------------------------------------
+
+
+
+    </script>
+
+</body>
+</html>
