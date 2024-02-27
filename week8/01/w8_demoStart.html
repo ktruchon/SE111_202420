@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="- YOUR NAME HERE -">
+    <meta name="description" content="W8 Demo - JS Arrays & Objects!">
+
+    <title>W8 | JS Arrays & Objects</title>
+
+    <!--IN DOCUMENT STYLING-->
+    <style>
+        /*write CSS in here!*/
+
+        /*selecting an element by TAG TYPE*/
+        /*in CSS, this makes ALL elements of the type styled*/
+        body {
+            background-color:grey;
+        }
+
+        table {
+            border:1px solid white;
+            width:50px;
+            margin:auto;
+            text-align:left;
+        }
+
+
+        /*selecting an element by #ID*/
+        /*in CSS, this makes ONLY THE ELEMENT with the ID styled*/
+
+        #wrapper {
+            width:1200px;
+            background-color:darkslategray;
+            color:white;
+            font-family:Helvetica, sans-serif;
+            margin:auto;
+            padding:10px;
+            box-shadow: 0 0 8px black;
+            text-align:center;
+        }
+
+        #content {
+            border:1px solid lightslategrey;
+            padding:10px;
+            margin:20px 10px;
+
+        }
+
+        
+
+        #footer {
+            font-size: 10px;
+        }
+
+        /*selecting an element by .CLASS*/
+        /*in CSS, this makes ALL elements of the CLASS NAME styled*/
+        .button {
+            width:200px;
+            height:50px;
+            background-color:lightslategray;
+            color:darkslategrey;
+            line-height:50px;
+            text-align:center;
+            margin:auto;
+            margin-top:25px;
+            display:block;
+            border:1px solid white;
+        }
+
+        .button:hover {
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+
+    <!--#wrapper for main HTML content-->
+    <div id="wrapper">
+
+        <!-- for game title-->
+        <div id="header">
+            <h1>Arrays & Objects in JS</h1>
+            <h3>A practice in W8 Javascript Topics</h3>
+            <p><i>Add information to the form below and then click SUBMIT without refreshing the page!
+        </div>
+
+        <!--nav for extra game stuff-->
+        <div id="nav">
+
+        </div>
+
+        <!--main content for game-->
+        <!--THIS PAGE: form for player name-->
+        <div id="content">
+            <!--build a form with a table for the user to fill out-->
+            <!--the form submit button will have an event listener added to it in JS-->
+            <form id="myForm">
+
+                <table>
+
+                    <tbody>
+                        <!--player name-->
+                        <tr>
+                            <td>
+                                <label for="player">Player Name:</label>
+                            </td>
+                            <td>
+                                <input type="text" name="player" id="player" maxlength="25" placeholder="Jane Doe" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="p-class">Player Class:</label>
+                            </td>
+                            <td>
+                                <input type="text" name="p-class" id="p-class" maxlength="25" placeholder="Warlock" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="p-lvl">Player Level:</label>
+                            </td>
+                            <td>
+                                <input type="number" name="p-lvl" id="p-lvl" min="1" max="25" placeholder="3" >
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </form>
+
+
+
+
+            <!--once the player has filled out their form, we need to display the results back to them within the page-->
+            <div id="resultBox">
+
+            </div><!--/ #resultBox-->
+
+        </div><!--/ #content-->
+
+        <!--footer for final notes of game site-->
+        <div id="footer">
+
+            <p>&copy; -YOUR NAME GOES HERE- | SE111 | 202420</p>
+            <h6><a href="../../index.html">KT's Repo Index</a></h6> <!--keep this KT's repo link ;] yours goes in the #nav aread-->
+
+            <!--screeshot of validation below-->
+            <!--nesting an image inside of an anchor element makes the image the link!-->
+            <!--
+                
+                <a href="images/_____"><img src="images/___" alt="screenshot of validation for page" style="width:50%"></a>
+            -->
+
+        </div><!--/ #footer-->
+
+    </div>
+
+    <!--SCRIPT TAGS usually BELONG @ END of BODY ELEMENT (after HTML content)-->
+    <!--IN DOCUMENT JAVASCRIPT BELONGS BELOW-->
+    <script>
+        //write JS in here; loads after HTML content, so all HTML content is available! needed to gain access to form values without query string
+
+
+        //[PART 1]-WEEK 7 REVIEW---JS HTML ELEMENT SELECTION-----------------------------
+
+
+
+        //[PART 2]-INTRO TO JS ARRAYS & OBJECTS-------------------------------------------------------------------------
+        //-------ARRAYS--------------------
+        //-------create a new array of names and populate it!
+
+        //-------PARALLEL ARRAYS-----------
+        //-------Building a parallel array to people array that holds fave animals
+
+        //-------ASSOCIATIVE ARRAYS---------
+
+
+        //-------OBJECTS--------------------
+
+        //-------ARRAYS POPULATED WITH OBJECTS----------
+
+        //[PART 3]-PUTTING IT ALL TOGETHER---------------------------------------------
+    </script>
+
+</body>
+</html>
